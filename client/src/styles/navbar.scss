@@ -1,0 +1,40 @@
+@use 'colors';
+
+.nav-container {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+$navPadding: 5px;
+$navMargin: 5px;
+
+.nav-link {
+    padding: $navPadding;
+    margin: $navMargin;
+}
+
+.nav-div {
+    display: inline-block;
+}
+
+.nav-logo {
+    margin-right: auto;
+    font-size: large;
+}
+
+.neonText {
+    color: colors.$primary-green;
+    text-shadow: 0 0 4px colors.$primary-green, 0 0 8px colors.$primary-green, 0 0 15px #fff;
+    padding: $navPadding;
+    margin-left: 1em;
+    // margin: $navMargin;
+    // , 0 0 38px colors.$primary-green,
+    // 0 0 62px colors.$primary-green, 0 0 70px colors.$primary-green, 0 0 82px colors.$primary-green,
+    // 0 0 110px colors.$primary-green
+    font-family: 'Vibur', sans-serif;
+}

@@ -1,0 +1,27 @@
+@use 'colors';
+
+.mainPage-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img {
+        width: 50vw;
+        height: 75vh;
+    }
+}
+
+.mainPage-text {
+    h1 {
+        // width: 50vw;
+        // margin-right: auto;
+        font-size: 3em;
+        font-weight: 500;
+    }
+}
+
+.left-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40vw;
+}
