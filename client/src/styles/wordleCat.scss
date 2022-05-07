@@ -1,0 +1,83 @@
+.bouncing-text {
+    // position: relative;
+    display: flex;
+    font-size: 25px;
+    font-family: arial black;
+    :hover {
+        cursor: pointer;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1, 1) translateY(0);
+    }
+    10% {
+        transform: scale(1.1, 0.9) translateY(0);
+    }
+    30% {
+        transform: scale(0.9, 1.1) translateY(-20px);
+    }
+    50% {
+        transform: scale(1.05, 0.95) translateY(0);
+    }
+    58% {
+        transform: scale(1, 1) translateY(-7px);
+    }
+    65% {
+        transform: scale(1, 1) translateY(0);
+    }
+    100% {
+        transform: scale(1, 1) translateY(0);
+    }
+}
+
+@keyframes borderBounce {
+    25% {
+        background-color: gray;
+    }
+    100% {
+        background-color: green;
+    }
+}
+
+.bouncing-text:hover .w {
+    animation: bounce 1s ease forwards;
+}
+
+.bouncing-text:hover .o {
+    animation: bounce 1s ease forwards 0.1s;
+}
+
+.bouncing-text:hover .r {
+    animation: bounce 1s ease forwards 0.2s;
+}
+
+.bouncing-text:hover .d {
+    animation: bounce 1s ease forwards 0.3s;
+}
+
+.bouncing-text:hover .l {
+    animation: bounce 1s ease forwards 0.4s;
+}
+
+.bouncing-text:hover .e {
+    animation: bounce 1s ease forwards 0.5s;
+}
+
+.bor {
+    background-color: gray;
+    // animation: borderBounce 1s ease forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 5px 5px 5px 5px;
+    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+}
+
+.bouncing-text:hover .bor {
+    animation: borderBounce 1s ease forwards;
+}
