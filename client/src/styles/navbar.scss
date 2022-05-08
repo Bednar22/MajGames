@@ -41,3 +41,52 @@ $navMargin: 5px;
     // 0 0 110px colors.$primary-green
     font-family: 'Vibur', sans-serif;
 }
+
+.nav-button {
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 10px 10px 10px;
+    font-size: large;
+    position: relative;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+}
+
+.nav-button:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-button:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: colors.$light-color;
+    transition: width 0.2s ease 0s, left 0.2s ease 0s;
+    width: 0;
+}
+
+.menu {
+    padding-right: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.active::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    background: colors.$primary-green;
+    transition: width 0.2s ease 0s, left 0.2s ease 0s;
+    width: 100%;
+}

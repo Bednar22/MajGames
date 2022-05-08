@@ -25,3 +25,14 @@
     left: 0;
     width: 40vw;
 }
+
+.games-word {
+    color: colors.$primary-blue;
+    text-decoration: none;
+    z-index: 1;
+}
+
+.games-word:hover {
+    cursor: pointer;
+    pointer-events: auto;
+}
