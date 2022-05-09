@@ -24,17 +24,23 @@ $navMargin: 5px;
 
 .nav-logo {
     margin-left: 10px;
-    margin-right: auto;
     font-size: large;
-    width: 100px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
+}
+
+.nav-left {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
 }
 
 .neonText {
+    font-size: 1.5em;
     color: colors.$primary-green;
     text-shadow: 0 0 4px colors.$primary-green, 0 0 8px colors.$primary-green, 0 0 15px #fff;
     padding: $navPadding;
-    margin-left: 1em;
+    margin-left: 10px;
     // margin: $navMargin;
     // , 0 0 38px colors.$primary-green,
     // 0 0 62px colors.$primary-green, 0 0 70px colors.$primary-green, 0 0 82px colors.$primary-green,
