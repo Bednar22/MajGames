@@ -6,6 +6,8 @@ export const TictactoeMain = (props) => {
     const [board, setBoard] = useState([]);
     const [end, setEnd] = useState(false);
     const [turn, setTurn] = useState(true);
+    const [boardSize, setBoardSize] = useState(3);
+    const [winner, setWinner] = useState('');
 
     const createBoard = (size) => {
         let boardlogic = new Array(size).fill(new Array(size));
@@ -18,6 +20,13 @@ export const TictactoeMain = (props) => {
     };
 
     const setChar = (index) => {
+        let winChar;
+        if (turn) {
+            winChar = 'O';
+        } else {
+            winChar = 'X';
+        }
+
         if (end === false) {
             let helpBoard = [...board[index[0]]];
             let helpBoard2 = [...board];
@@ -33,18 +42,63 @@ export const TictactoeMain = (props) => {
             } else {
                 return;
             }
+
             helpBoard2[index[0]] = helpBoard;
             setBoard(helpBoard2);
+            checkWin(helpBoard2, winChar);
         }
     };
 
+    const checkWin = (checkBoard, winChar) => {
+        let streak = 0;
+        //checking every horizontal line WORKS
+        for (let i = 0; i < checkBoard.length; i++) {
+            for (let j = 0; j < checkBoard.length; j++) {
+                if (checkBoard[i][j] == winChar) {
+                    streak++;
+                } else {
+                    streak = 0;
+                }
+                if (streak == 3) {
+                    setWinner(winChar);
+                    setEnd(true);
+                }
+            }
+        }
+        //checking every vertical line WORKS
+        for (let i = 0; i < checkBoard.length; i++) {
+            for (let j = 0; j < checkBoard.length; j++) {
+                if (checkBoard[j][i] == winChar) {
+                    streak++;
+                } else {
+                    streak = 0;
+                }
+
+                if (streak == 3) {
+                    setWinner(winChar);
+                    setEnd(true);
+                }
+            }
+        }
+        setEnd(false);
+    };
+
     useEffect(() => {
-        createBoard(3);
+        createBoard(5);
     }, []);
 
     return (
         <>
-            <h1>Main file ---- logic of the game</h1>{' '}
+            <div className='board-size-panel'>
+                <label htmlFor='tictac-input'>Put size of the board</label>
+                <input
+                    id='tictac-input'
+                    name='tictac-input'
+                    className='tictac-input'
+                    type='number'
+                    onChange={(e) => createBoard(e.target.value)}
+                ></input>
+            </div>
             {board.map((item, index) => {
                 return (
                     <div className='buttons-row' key={index}>

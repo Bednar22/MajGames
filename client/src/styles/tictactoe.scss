@@ -1,5 +1,29 @@
 @use 'colors';
 
+@keyframes tic-click {
+    0% {
+        transform: scale(1, 1);
+    }
+    10% {
+        transform: scale(1.1, 1.1);
+    }
+    30% {
+        transform: scale(1.2, 1.2);
+    }
+    50% {
+        transform: scale(1.2, 1.2);
+    }
+    58% {
+        transform: scale(1.1, 1.1);
+    }
+    65% {
+        transform: scale(1, 1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
 .tic-square {
     width: 50px;
     height: 50px;
@@ -15,7 +39,25 @@
     font-weight: 600;
 }
 
+.tic-square:active {
+    animation: tic-click 1s;
+}
+
 .buttons-row {
     overflow: hidden;
     display: inline-block;
+}
+
+.tictac-input {
+    width: 100px;
+    height: 2rem;
+}
+
+label {
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.board-size-panel {
+    margin-bottom: 5rem;
 }
