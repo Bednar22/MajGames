@@ -51,7 +51,7 @@ export const TictactoeMain = (props) => {
 
     const checkWin = (checkBoard, winChar) => {
         let streak = 0;
-        //checking every horizontal line WORKS
+        //checking every horizontal line
         for (let i = 0; i < checkBoard.length; i++) {
             for (let j = 0; j < checkBoard.length; j++) {
                 if (checkBoard[i][j] == winChar) {
@@ -62,10 +62,11 @@ export const TictactoeMain = (props) => {
                 if (streak == 3) {
                     setWinner(winChar);
                     setEnd(true);
+                    return;
                 }
             }
         }
-        //checking every vertical line WORKS
+        //checking every vertical line
         for (let i = 0; i < checkBoard.length; i++) {
             for (let j = 0; j < checkBoard.length; j++) {
                 if (checkBoard[j][i] == winChar) {
@@ -77,6 +78,37 @@ export const TictactoeMain = (props) => {
                 if (streak == 3) {
                     setWinner(winChar);
                     setEnd(true);
+                    return;
+                }
+            }
+        }
+
+        // checking first diagonal
+        for (let i = 0; i < checkBoard.length - 2; i++) {
+            for (let j = 0; j < checkBoard.length - 2; j++) {
+                if (
+                    checkBoard[i][j] == winChar &&
+                    checkBoard[i + 1][j + 1] == winChar &&
+                    checkBoard[i + 2][j + 2] == winChar
+                ) {
+                    setWinner(winChar);
+                    setEnd(true);
+                    return;
+                }
+            }
+        }
+
+        // checking second diagonal
+        for (let i = checkBoard.length - 1; i >= 2; i--) {
+            for (let j = 0; j < checkBoard.length - 2; j++) {
+                if (
+                    checkBoard[i][j] == winChar &&
+                    checkBoard[i - 1][j + 1] == winChar &&
+                    checkBoard[i - 2][j + 2] == winChar
+                ) {
+                    setWinner(winChar);
+                    setEnd(true);
+                    return;
                 }
             }
         }
@@ -96,7 +128,7 @@ export const TictactoeMain = (props) => {
                     name='tictac-input'
                     className='tictac-input'
                     type='number'
-                    onChange={(e) => createBoard(e.target.value)}
+                    // onChange={(e) => createBoard(e.target.value)}
                 ></input>
             </div>
             {board.map((item, index) => {
